@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+using namespace cocos2d;
+
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -14,6 +16,12 @@ public:
 
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+
+	void update(float);
+private:
+	Sprite* _bg1;
+	Sprite* _bg2;
+	static const int kScrollSpeed = 15;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
