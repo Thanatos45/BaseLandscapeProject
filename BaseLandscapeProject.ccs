@@ -6,6 +6,9 @@
         <Project Name="MainScene.csd" Type="Scene" />
         <Image Name="HelloWorld.png" />
         <Image Name="Stars.jpg" />
+        <Image Name="PlayerShip.png" />
+        <Image Name="PlayerTurret.png" />
+        <Image Name="Projectile.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
