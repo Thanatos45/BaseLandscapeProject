@@ -18,9 +18,17 @@ public:
     CREATE_FUNC(HelloWorld);
 
 	void update(float);
+
+	//Deal with touches.
+	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
+	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
+	virtual void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
+	virtual void onTouchCancelled(cocos2d::Touch*, cocos2d::Event*);
+
 private:
 	Sprite* _bg1;
 	Sprite* _bg2;
+	Sprite* _turret;
 	static const int kScrollSpeed = 15;
 };
 

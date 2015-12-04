@@ -35,15 +35,30 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
+	_turret = (Sprite*)rootNode->getChildByName("PlayerTurret");
+
+	//TOUCHES
+	//Set up a touch listener.
+	auto touchListener = EventListenerTouchOneByOne::create();
+
+	//Set callbacks for our touch functions.
+	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+	touchListener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+
+	//Add our touch listener to event listener list.
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+
 	//background stuff
 	_bg1 = (Sprite*)rootNode->getChildByName("Stars1");
 	_bg2 = (Sprite*)rootNode->getChildByName("Stars2");
 
-	_bg1->setAnchorPoint(ccp(0, 0));
-	_bg1->setPosition(ccp(0, 0));
+	_bg1->setAnchorPoint(Point(0, 0));
+	_bg1->setPosition(Point(0, 0));
 
-	_bg2->setAnchorPoint(ccp(0, 0));
-	_bg2->setPosition(ccp(_bg1->boundingBox().size.width - 1, 0));
+	_bg2->setAnchorPoint(Point(0, 0));
+	_bg2->setPosition(Point(_bg1->boundingBox().size.width - 1, 0));
 
 	this->scheduleUpdate();
 
@@ -71,3 +86,24 @@ void HelloWorld::update(float delta)
 	_bg1->setPosition(bg1Pos);
 	_bg2->setPosition(bg2Pos);
 }
+
+bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	return true;
+}
+
+void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+
+}
+
+void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+
+}
+
+void HelloWorld::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+
+}
+
