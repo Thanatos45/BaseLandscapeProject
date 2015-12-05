@@ -94,7 +94,12 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
+	Point location = touch->getLocation();
 
+	//ccpsub gets angle between them
+	float angleRadians = ccpToAngle(ccpSub( _turret->getPosition(), location));
+
+	_turret->setRotation(180 - CC_RADIANS_TO_DEGREES(angleRadians));
 }
 
 void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)

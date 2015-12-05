@@ -5,10 +5,10 @@
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
         <Image Name="HelloWorld.png" />
-        <Image Name="Stars.jpg" />
         <Image Name="PlayerShip.png" />
         <Image Name="PlayerTurret.png" />
         <Image Name="Projectile.png" />
+        <Image Name="Stars.jpg" />
       </RootFolder>
     </Group>
   </SolutionFolder>

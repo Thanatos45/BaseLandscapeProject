@@ -6,24 +6,24 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="Stars1" ActionTag="1325392864" Tag="6" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="0.0033" RightMargin="-8346.0029" TopMargin="792.5834" BottomMargin="-351.5834" ctype="SpriteObjectData">
-            <Size X="9306.0000" Y="199.0000" />
-            <AnchorPoint ScaleY="0.5000" />
-            <Position Y="-252.0960" />
-            <Scale ScaleX="1.0000" ScaleY="2.4100" />
+          <AbstractNodeData Name="Stars1" ActionTag="-566233630" Tag="7" IconVisible="False" LeftMargin="10.4727" RightMargin="-8356.4727" TopMargin="-503.5730" BottomMargin="663.5730" ctype="SpriteObjectData">
+            <Size X="9306.0000" Y="480.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="4663.4727" Y="903.5730" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition Y="-0.3939" />
+            <PrePosition X="4.8578" Y="1.4118" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Stars.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Stars2" ActionTag="-1869723408" Tag="8" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-6.6948" RightMargin="-8339.3057" TopMargin="-215.9766" BottomMargin="656.9766" ctype="SpriteObjectData">
-            <Size X="9306.0000" Y="199.0000" />
-            <AnchorPoint ScaleY="0.5000" />
-            <Position X="-6.7200" Y="756.4800" />
-            <Scale ScaleX="1.0000" ScaleY="2.4100" />
+          <AbstractNodeData Name="Stars2" ActionTag="-1168213025" Tag="8" IconVisible="False" LeftMargin="1.2080" RightMargin="-8347.2080" TopMargin="767.1187" BottomMargin="-607.1187" ctype="SpriteObjectData">
+            <Size X="9306.0000" Y="480.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="4654.2080" Y="-367.1187" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="-0.0070" Y="1.1820" />
+            <PrePosition X="4.8481" Y="-0.5736" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Stars.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
