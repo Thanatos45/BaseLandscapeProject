@@ -37,6 +37,16 @@ bool HelloWorld::init()
 
 	_turret = (Sprite*)rootNode->getChildByName("PlayerTurret");
 
+	_projectile = new Projectile();
+
+	_projectile->projectileSprite = (Sprite*)rootNode->getChildByName("Projectile");
+
+	_projectile->speed = 15;
+
+	_projectile->onScreen = false;
+
+	winSize = Director::sharedDirector()->getWinSize();
+
 	//TOUCHES
 	//Set up a touch listener.
 	auto touchListener = EventListenerTouchOneByOne::create();
@@ -67,6 +77,15 @@ bool HelloWorld::init()
 //
 void HelloWorld::update(float delta)
 {
+	updateBackground();
+	if (_projectile->onScreen)
+	{
+		updateProjectile();
+	}
+}
+
+void HelloWorld::updateBackground()
+{
 	Point bg1Pos = _bg1->getPosition();
 	Point bg2Pos = _bg2->getPosition();
 	bg1Pos.x -= kScrollSpeed;
@@ -87,6 +106,22 @@ void HelloWorld::update(float delta)
 	_bg2->setPosition(bg2Pos);
 }
 
+void HelloWorld::updateProjectile()
+{
+	_projectile->temp.x += _projectile->vector.x * _projectile->speed;
+	_projectile->temp.y += _projectile->vector.y * _projectile->speed;
+	_projectile->projectileSprite->setPosition(_projectile->temp.x, _projectile->temp.y);
+	
+	//checks if projectile is on screen
+	if (_projectile->projectileSprite->getPositionX() > winSize.width + _projectile->projectileSprite->getContentSize().width || 
+		_projectile->projectileSprite->getPositionX() < 0 - _projectile->projectileSprite->getContentSize().width ||
+		_projectile->projectileSprite->getPositionY() > winSize.height + _projectile->projectileSprite->getContentSize().height ||
+		_projectile->projectileSprite->getPositionY() < 0 - _projectile->projectileSprite->getContentSize().height)
+	{
+		_projectile->onScreen = false;
+	}
+}
+
 bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 	return true;
@@ -94,12 +129,22 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-	Point location = touch->getLocation();
+	touchLoc = touch->getLocation();
 
 	//ccpsub gets angle between them
-	float angleRadians = ccpToAngle(ccpSub( _turret->getPosition(), location));
+	angleRadians = ccpToAngle(ccpSub(_turret->getPosition(), touchLoc));
 
 	_turret->setRotation(180 - CC_RADIANS_TO_DEGREES(angleRadians));
+
+	if (!_projectile->onScreen)
+	{
+		_projectile->vector = Point(-cos(angleRadians), -sin(angleRadians));
+
+		_projectile->projectileSprite->setPosition(_turret->getPosition().x, _turret->getPosition().y);
+		_projectile->temp.setPoint(_turret->getPosition().x, _turret->getPosition().y);
+	}
+
+	_projectile->onScreen = true;
 }
 
 void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)

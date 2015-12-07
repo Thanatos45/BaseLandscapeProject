@@ -5,6 +5,16 @@
 
 using namespace cocos2d;
 
+struct Projectile
+{
+	Sprite* projectileSprite;
+	bool onScreen;
+	Point vector;
+	int speed;
+	int damage;
+	Point temp;
+};
+
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -19,6 +29,10 @@ public:
 
 	void update(float);
 
+	void updateBackground();
+
+	void updateProjectile();
+
 	//Deal with touches.
 	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
@@ -29,6 +43,10 @@ private:
 	Sprite* _bg1;
 	Sprite* _bg2;
 	Sprite* _turret;
+	Projectile* _projectile;
+	Point touchLoc;
+	float angleRadians;
+	Size winSize;
 	static const int kScrollSpeed = 15;
 };
 
