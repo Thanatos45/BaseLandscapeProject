@@ -47,7 +47,7 @@ private:
 	Point touchLoc;
 	float angleRadians;
 	Size winSize;
-	static const int kScrollSpeed = 15;
+	static const int kScrollSpeed = 10;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

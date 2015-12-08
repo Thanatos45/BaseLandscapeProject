@@ -9,6 +9,7 @@
         <Image Name="PlayerTurret.png" />
         <Image Name="Projectile.png" />
         <Image Name="Stars.jpg" />
+        <Image Name="StarsSmall.jpg" />
       </RootFolder>
     </Group>
   </SolutionFolder>
