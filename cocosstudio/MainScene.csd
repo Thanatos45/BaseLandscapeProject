@@ -6,57 +6,57 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="800.0000" Y="480.0000" />
         <Children>
-          <AbstractNodeData Name="Stars1" ActionTag="1385095534" Tag="11" IconVisible="False" LeftMargin="871.0668" RightMargin="-871.0668" TopMargin="11.5393" BottomMargin="-11.5393" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Stars1" ActionTag="1385095534" Tag="11" IconVisible="False" LeftMargin="-4.2465" RightMargin="4.2465" TopMargin="532.2637" BottomMargin="-532.2637" ctype="SpriteObjectData">
             <Size X="800.0000" Y="480.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1271.0668" Y="228.4607" />
+            <Position X="395.7535" Y="-292.2637" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.5888" Y="0.4760" />
+            <PrePosition X="0.4947" Y="-0.6089" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="StarsSmall.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Stars2" ActionTag="713765960" Tag="12" IconVisible="False" LeftMargin="-9.5922" RightMargin="9.5922" TopMargin="-597.0142" BottomMargin="597.0142" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Stars2" ActionTag="713765960" Tag="12" IconVisible="False" LeftMargin="2.8063" RightMargin="-2.8063" TopMargin="-517.6658" BottomMargin="517.6658" ctype="SpriteObjectData">
             <Size X="800.0000" Y="480.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="390.4078" Y="837.0142" />
+            <Position X="402.8063" Y="757.6658" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4880" Y="1.7438" />
+            <PrePosition X="0.5035" Y="1.5785" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="StarsSmall.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="PlayerShip" ActionTag="1067069064" Tag="5" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="298.8400" RightMargin="331.1600" TopMargin="181.1320" BottomMargin="213.8680" ctype="SpriteObjectData">
+          <AbstractNodeData Name="PlayerShip" ActionTag="1067069064" Tag="5" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="315.0000" RightMargin="315.0000" TopMargin="197.5000" BottomMargin="197.5000" ctype="SpriteObjectData">
             <Size X="170.0000" Y="85.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="383.8400" Y="256.3680" />
+            <Position X="400.0000" Y="240.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4798" Y="0.5341" />
+            <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="0.2125" Y="0.1771" />
             <FileData Type="Normal" Path="PlayerShip.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="PlayerTurret" ActionTag="-26100775" Tag="6" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="353.9647" RightMargin="368.0353" TopMargin="199.1280" BottomMargin="231.8720" ctype="SpriteObjectData">
+          <AbstractNodeData Name="PlayerTurret" ActionTag="-26100775" Tag="6" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="361.0000" RightMargin="361.0000" TopMargin="215.5000" BottomMargin="215.5000" ctype="SpriteObjectData">
             <Size X="78.0000" Y="49.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="392.9600" Y="256.3680" />
+            <Position X="400.0000" Y="240.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4912" Y="0.5341" />
+            <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="PlayerTurret.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Projectile" ActionTag="5674487" Tag="7" IconVisible="False" LeftMargin="-62.0524" RightMargin="801.0524" TopMargin="103.1260" BottomMargin="314.8740" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Projectile" ActionTag="5674487" Tag="7" IconVisible="False" LeftMargin="-373.5695" RightMargin="1112.5696" TopMargin="186.8749" BottomMargin="231.1251" ctype="SpriteObjectData">
             <Size X="61.0000" Y="62.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-31.5524" Y="345.8740" />
+            <Position X="-343.0695" Y="262.1251" />
             <Scale ScaleX="0.7000" ScaleY="0.7000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="-0.0394" Y="0.7206" />
+            <PrePosition X="-0.4288" Y="0.5461" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Projectile.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />

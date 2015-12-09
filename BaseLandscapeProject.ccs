@@ -10,6 +10,10 @@
         <Image Name="Projectile.png" />
         <Image Name="Stars.jpg" />
         <Image Name="StarsSmall.jpg" />
+        <PlistImageFolder Image="Damage.png" PListFile="Damage.plist" Name=".Damage_PList.Dir">
+          <PlistImageFile Name="Damage_1.png" Key="Damage_1.png" />
+          <PlistImageFile Name="Damage_2.png" Key="Damage_2.png" />
+        </PlistImageFolder>
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -39,13 +39,43 @@ bool HelloWorld::init()
 
 	_projectile = new Projectile();
 
-	_projectile->projectileSprite = (Sprite*)rootNode->getChildByName("Projectile");
+	_projectile->sprite = (Sprite*)rootNode->getChildByName("Projectile");
 
 	_projectile->speed = 15;
 
 	_projectile->onScreen = false;
 
+	_projectile->radius =_projectile->sprite->getContentSize().width / 2;
+
 	winSize = Director::sharedDirector()->getWinSize();
+
+	//DmgPwrUp - need to move to own method
+	_dmgPwrUp = new PowerUp();
+
+	auto cacher = SpriteFrameCache::getInstance();
+	cacher->addSpriteFramesWithFile("res/Damage.plist");
+
+	_dmgPwrUp->sprite = Sprite::create();
+
+	// load all the animation frames into an array
+	Vector<SpriteFrame*> frames;
+	for (int i = 1; i <= 2; i++)
+	{
+		stringstream ss;
+		ss << "Damage_" << i << ".png";
+		frames.pushBack(cacher->getSpriteFrameByName(ss.str()));
+	}
+
+	// play the animation
+	Animation* anim = Animation::createWithSpriteFrames(frames, 0.1f);
+	_dmgPwrUp->sprite->runAction(RepeatForever::create(Animate::create(anim)));
+	_dmgPwrUp->sprite->setPosition(100, 100);
+
+	_dmgPwrUp->onScreen = false;
+
+	this->addChild(_dmgPwrUp->sprite);
+
+	_dmgPwrUp->radius = _dmgPwrUp->sprite->getContentSize().width / 2;
 
 	//TOUCHES
 	//Set up a touch listener.
@@ -78,10 +108,21 @@ bool HelloWorld::init()
 void HelloWorld::update(float delta)
 {
 	updateBackground();
-	if (_projectile->onScreen)
+
+	if (fabs(_projectile->sprite->getPositionX()) - fabs(_dmgPwrUp->sprite->getPositionX()) <
+		_projectile->radius + _dmgPwrUp->radius &&
+		fabs(_projectile->sprite->getPositionY()) - fabs(_dmgPwrUp->sprite->getPositionY()) <
+		_projectile->radius + _dmgPwrUp->radius) //Need to move to own method...
 	{
-		updateProjectile();
+		_dmgPwrUp->sprite->setPosition(-100, -100);
+		_projectile->sprite->setPosition(-200, -200);
+		//Add code to boost damage - when enemies are in the game.
+		//Also need to change it so that it uses the new PowerUp struct.
 	}
+
+	_dmgPwrUp->radius = _dmgPwrUp->sprite->getContentSize().width / 2;
+
+	updateProjectile();
 }
 
 void HelloWorld::updateBackground()
@@ -107,18 +148,21 @@ void HelloWorld::updateBackground()
 }
 
 void HelloWorld::updateProjectile()
-{
-	_projectile->temp.x += _projectile->vector.x * _projectile->speed;
-	_projectile->temp.y += _projectile->vector.y * _projectile->speed;
-	_projectile->projectileSprite->setPosition(_projectile->temp.x, _projectile->temp.y);
-	
+{	
 	//checks if projectile is on screen
-	if (_projectile->projectileSprite->getPositionX() > winSize.width + _projectile->projectileSprite->getContentSize().width || 
-		_projectile->projectileSprite->getPositionX() < 0 - _projectile->projectileSprite->getContentSize().width ||
-		_projectile->projectileSprite->getPositionY() > winSize.height + _projectile->projectileSprite->getContentSize().height ||
-		_projectile->projectileSprite->getPositionY() < 0 - _projectile->projectileSprite->getContentSize().height)
+	if (_projectile->sprite->getPositionX() > winSize.width + _projectile->sprite->getContentSize().width || 
+		_projectile->sprite->getPositionX() < 0 - _projectile->sprite->getContentSize().width ||
+		_projectile->sprite->getPositionY() > winSize.height + _projectile->sprite->getContentSize().height ||
+		_projectile->sprite->getPositionY() < 0 - _projectile->sprite->getContentSize().height)
 	{
 		_projectile->onScreen = false;
+	}
+	else
+	{
+		_projectile->onScreen = true;
+		_projectile->temp.x += _projectile->vector.x * _projectile->speed;
+		_projectile->temp.y += _projectile->vector.y * _projectile->speed;
+		_projectile->sprite->setPosition(_projectile->temp.x, _projectile->temp.y);
 	}
 }
 
@@ -129,18 +173,18 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-	touchLoc = touch->getLocation();
+	_touchLocation = touch->getLocation();
 
 	//ccpsub gets angle between them
-	angleRadians = ccpToAngle(ccpSub(_turret->getPosition(), touchLoc));
+	_turretAngleRadians = ccpToAngle(ccpSub(_turret->getPosition(), _touchLocation));
 
-	_turret->setRotation(180 - CC_RADIANS_TO_DEGREES(angleRadians));
+	_turret->setRotation(180 - CC_RADIANS_TO_DEGREES(_turretAngleRadians));
 
 	if (!_projectile->onScreen)
 	{
-		_projectile->vector = Point(-cos(angleRadians), -sin(angleRadians));
+		_projectile->vector = Point(-cos(_turretAngleRadians), -sin(_turretAngleRadians));
 
-		_projectile->projectileSprite->setPosition(_turret->getPosition().x, _turret->getPosition().y);
+		_projectile->sprite->setPosition(_turret->getPosition().x, _turret->getPosition().y);
 		_projectile->temp.setPoint(_turret->getPosition().x, _turret->getPosition().y);
 	}
 

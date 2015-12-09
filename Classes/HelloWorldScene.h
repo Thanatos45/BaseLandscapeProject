@@ -1,18 +1,30 @@
 #ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
-#include "cocos2d.h"
+#include "cocos2d.h"#
+#include <sstream>
 
 using namespace cocos2d;
+using namespace std;
 
 struct Projectile
 {
-	Sprite* projectileSprite;
+	Sprite* sprite;
 	bool onScreen;
 	Point vector;
 	int speed;
 	int damage;
 	Point temp;
+	int radius;
+};
+
+struct PowerUp
+{
+	Sprite* sprite;
+	bool onScreen;
+	int counter;
+	float effect;
+	int radius;
 };
 
 class HelloWorld : public cocos2d::Layer
@@ -43,9 +55,10 @@ private:
 	Sprite* _bg1;
 	Sprite* _bg2;
 	Sprite* _turret;
+	PowerUp* _dmgPwrUp;
 	Projectile* _projectile;
-	Point touchLoc;
-	float angleRadians;
+	Point _touchLocation;
+	float _turretAngleRadians;
 	Size winSize;
 	static const int kScrollSpeed = 10;
 };
