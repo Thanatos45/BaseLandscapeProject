@@ -60,7 +60,7 @@ private:
 	Point _touchLocation;
 	float _turretAngleRadians;
 	Size winSize;
-	static const int kScrollSpeed = 10;
+	int _scrollSpeed;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

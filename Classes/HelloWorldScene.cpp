@@ -70,12 +70,10 @@ bool HelloWorld::init()
 	Animation* anim = Animation::createWithSpriteFrames(frames, 0.1f);
 	_dmgPwrUp->sprite->runAction(RepeatForever::create(Animate::create(anim)));
 	_dmgPwrUp->sprite->setPosition(100, 100);
-
+	_dmgPwrUp->sprite->setScale(0.5);
 	_dmgPwrUp->onScreen = false;
 
 	this->addChild(_dmgPwrUp->sprite);
-
-	_dmgPwrUp->radius = _dmgPwrUp->sprite->getContentSize().width / 2;
 
 	//TOUCHES
 	//Set up a touch listener.
@@ -100,6 +98,8 @@ bool HelloWorld::init()
 	_bg2->setAnchorPoint(Point(0, 0));
 	_bg2->setPosition(Point(_bg1->boundingBox().size.width - 1, 0));
 
+	_scrollSpeed = 10;
+
 	this->scheduleUpdate();
 
     return true;
@@ -109,28 +109,28 @@ void HelloWorld::update(float delta)
 {
 	updateBackground();
 
-	if (fabs(_projectile->sprite->getPositionX()) - fabs(_dmgPwrUp->sprite->getPositionX()) <
-		_projectile->radius + _dmgPwrUp->radius &&
-		fabs(_projectile->sprite->getPositionY()) - fabs(_dmgPwrUp->sprite->getPositionY()) <
-		_projectile->radius + _dmgPwrUp->radius) //Need to move to own method...
+	//Maybe we should add a scale variable to some of the structs - that's what the last divide by 2 is for below
+	_dmgPwrUp->radius = (_dmgPwrUp->sprite->getContentSize().width / 2) / 2; //Need to figure out how to fix this
+
+	if (_projectile->sprite->getBoundingBox().intersectsCircle(_dmgPwrUp->sprite->getPosition(), _dmgPwrUp->radius)) //Need to move to own method
 	{
-		_dmgPwrUp->sprite->setPosition(-100, -100);
-		_projectile->sprite->setPosition(-200, -200);
+		_dmgPwrUp->sprite->setPositionX(-100);
+		_projectile->sprite->setPositionY(-100);
 		//Add code to boost damage - when enemies are in the game.
-		//Also need to change it so that it uses the new PowerUp struct.
 	}
-
-	_dmgPwrUp->radius = _dmgPwrUp->sprite->getContentSize().width / 2;
-
-	updateProjectile();
+	
+	if (_projectile->onScreen)
+	{
+		updateProjectile();
+	}
 }
 
 void HelloWorld::updateBackground()
 {
 	Point bg1Pos = _bg1->getPosition();
 	Point bg2Pos = _bg2->getPosition();
-	bg1Pos.x -= kScrollSpeed;
-	bg2Pos.x -= kScrollSpeed;
+	bg1Pos.x -= _scrollSpeed;
+	bg2Pos.x -= _scrollSpeed;
 
 	// move scrolling background back by one screen width to achieve "endless" scrolling
 	if (bg1Pos.x < -(_bg1->getContentSize().width))
