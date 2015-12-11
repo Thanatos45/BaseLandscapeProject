@@ -71,9 +71,22 @@ bool HelloWorld::init()
 	_dmgPwrUp->sprite->runAction(RepeatForever::create(Animate::create(anim)));
 	_dmgPwrUp->sprite->setPosition(100, 100);
 	_dmgPwrUp->sprite->setScale(0.5);
+	_dmgPwrUp->scale = 2;
 	_dmgPwrUp->onScreen = false;
 
+	_dmgPwrUp->counter = 0;
+
 	this->addChild(_dmgPwrUp->sprite);
+
+	//Health
+	cacher->addSpriteFramesWithFile("res/Health.plist");
+	
+	_shipHealth = Sprite::createWithSpriteFrameName("health_1.png");
+	_shipHealth->setScale(2);
+	_shipHealth->setAnchorPoint(Point(0, 0));
+	_shipHealth->setPosition(winSize.width - (_shipHealth->getContentSize().width * _shipHealth->getScale()), 0);
+
+	this->addChild(_shipHealth);
 
 	//TOUCHES
 	//Set up a touch listener.
@@ -109,15 +122,7 @@ void HelloWorld::update(float delta)
 {
 	updateBackground();
 
-	//Maybe we should add a scale variable to some of the structs - that's what the last divide by 2 is for below
-	_dmgPwrUp->radius = (_dmgPwrUp->sprite->getContentSize().width / 2) / 2; //Need to figure out how to fix this
-
-	if (_projectile->sprite->getBoundingBox().intersectsCircle(_dmgPwrUp->sprite->getPosition(), _dmgPwrUp->radius)) //Need to move to own method
-	{
-		_dmgPwrUp->sprite->setPositionX(-100);
-		_projectile->sprite->setPositionY(-100);
-		//Add code to boost damage - when enemies are in the game.
-	}
+	updateDMGPowerUp();
 	
 	if (_projectile->onScreen)
 	{
@@ -163,6 +168,37 @@ void HelloWorld::updateProjectile()
 		_projectile->temp.x += _projectile->vector.x * _projectile->speed;
 		_projectile->temp.y += _projectile->vector.y * _projectile->speed;
 		_projectile->sprite->setPosition(_projectile->temp.x, _projectile->temp.y);
+	}
+}
+
+void HelloWorld::updateDMGPowerUp()
+{
+	//Maybe we should add a scale variable to some of the structs - that's what the last divide by 2 is for below
+	_dmgPwrUp->radius = (_dmgPwrUp->sprite->getContentSize().width / 2) / _dmgPwrUp->scale; //Need to figure out how to fix this
+
+	if (_projectile->sprite->getBoundingBox().intersectsCircle(_dmgPwrUp->sprite->getPosition(), _dmgPwrUp->radius)) //Need to move to own method
+	{
+		_dmgPwrUp->sprite->setPositionX(-100);
+		_projectile->sprite->setPositionY(-100);
+		//Add code to boost damage - when enemies are in the game.
+	}
+
+	if (_dmgPwrUp->sprite->getPositionX() > winSize.width + _dmgPwrUp->sprite->getContentSize().width ||
+		_dmgPwrUp->sprite->getPositionX() < 0 - _dmgPwrUp->sprite->getContentSize().width ||
+		_dmgPwrUp->sprite->getPositionY() > winSize.height + _dmgPwrUp->sprite->getContentSize().height ||
+		_dmgPwrUp->sprite->getPositionY() < 0 - _dmgPwrUp->sprite->getContentSize().height)
+	{
+		_dmgPwrUp->onScreen = false;
+		_dmgPwrUp->counter++;
+		if (_dmgPwrUp->counter == 100)
+		{
+			_dmgPwrUp->sprite->setPosition(rand() % (int)winSize.width + 0, rand() % (int)winSize.height + 0);
+			_dmgPwrUp->counter = 0;
+		}
+	}
+	else
+	{
+		_dmgPwrUp->onScreen = true;
 	}
 }
 

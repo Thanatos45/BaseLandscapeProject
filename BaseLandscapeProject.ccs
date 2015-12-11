@@ -14,6 +14,14 @@
           <PlistImageFile Name="Damage_1.png" Key="Damage_1.png" />
           <PlistImageFile Name="Damage_2.png" Key="Damage_2.png" />
         </PlistImageFolder>
+        <PlistImageFolder Image="Health.png" PListFile="Health.plist" Name=".Health_PList.Dir">
+          <PlistImageFile Name="health_1.png" Key="health_1.png" />
+          <PlistImageFile Name="health_2.png" Key="health_2.png" />
+          <PlistImageFile Name="health_3.png" Key="health_3.png" />
+          <PlistImageFile Name="health_4.png" Key="health_4.png" />
+          <PlistImageFile Name="health_5.png" Key="health_5.png" />
+          <PlistImageFile Name="health_6.png" Key="health_6.png" />
+        </PlistImageFolder>
       </RootFolder>
     </Group>
   </SolutionFolder>

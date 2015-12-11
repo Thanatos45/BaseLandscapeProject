@@ -16,6 +16,7 @@ struct Projectile
 	int damage;
 	Point temp;
 	int radius;
+	int scale;
 };
 
 struct PowerUp
@@ -25,6 +26,7 @@ struct PowerUp
 	int counter;
 	float effect;
 	int radius;
+	int scale;
 };
 
 class HelloWorld : public cocos2d::Layer
@@ -45,6 +47,8 @@ public:
 
 	void updateProjectile();
 
+	void updateDMGPowerUp();
+
 	//Deal with touches.
 	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
@@ -55,6 +59,7 @@ private:
 	Sprite* _bg1;
 	Sprite* _bg2;
 	Sprite* _turret;
+	Sprite* _shipHealth;
 	PowerUp* _dmgPwrUp;
 	Projectile* _projectile;
 	Point _touchLocation;

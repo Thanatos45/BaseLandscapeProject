@@ -50,13 +50,13 @@
             <FileData Type="Normal" Path="PlayerTurret.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Projectile" ActionTag="5674487" Tag="7" IconVisible="False" LeftMargin="-373.5695" RightMargin="1112.5696" TopMargin="186.8749" BottomMargin="231.1251" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Projectile" ActionTag="5674487" Tag="7" IconVisible="False" LeftMargin="-151.3055" RightMargin="890.3055" TopMargin="215.5985" BottomMargin="202.4015" ctype="SpriteObjectData">
             <Size X="61.0000" Y="62.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-343.0695" Y="262.1251" />
+            <Position X="-120.8055" Y="233.4015" />
             <Scale ScaleX="0.7000" ScaleY="0.7000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="-0.4288" Y="0.5461" />
+            <PrePosition X="-0.1510" Y="0.4863" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Projectile.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />

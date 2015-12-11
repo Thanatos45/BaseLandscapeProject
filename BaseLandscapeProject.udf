@@ -4,7 +4,7 @@
       <Value ctype="CocosRecentOperation">
         <LastPublishType Value="VS" />
         <IsLastPublish Value="True" />
-        <LastRunType Value="Android" />
+        <LastRunType Value="Windows" />
       </Value>
     </Item>
     <Item Key="PackageParamsKey">
@@ -17,7 +17,7 @@
         <AndroidVersion Value="android-16" />
         <iOS_Target Value="BaseLandscapeProject-mobile" />
         <iOS_BundleID Value="" />
-        <Platform Value="None" />
+        <Platform Value="Android" />
         <RunPlatform Value="Android" />
         <FrameworkVersion Value="cocos2d-x-3.8" />
         <IsDebugKeystore Value="True" />
