@@ -38,21 +38,18 @@ bool HelloWorld::init()
 	_turret = (Sprite*)rootNode->getChildByName("PlayerTurret");
 
 	_projectile = new Projectile();
-
 	_projectile->sprite = (Sprite*)rootNode->getChildByName("Projectile");
-
 	_projectile->speed = 15;
-
 	_projectile->onScreen = false;
-
 	_projectile->radius =_projectile->sprite->getContentSize().width / 2;
+	_projectile->damage = 1;
 
 	winSize = Director::sharedDirector()->getWinSize();
 
 	//DmgPwrUp - need to move to own method
 	_dmgPwrUp = new PowerUp();
 
-	auto cacher = SpriteFrameCache::getInstance();
+	cacher = SpriteFrameCache::getInstance();
 	cacher->addSpriteFramesWithFile("res/Damage.plist");
 
 	_dmgPwrUp->sprite = Sprite::create();
@@ -78,9 +75,17 @@ bool HelloWorld::init()
 
 	this->addChild(_dmgPwrUp->sprite);
 
+	//Health Powerup - works on windows, but not on android...?
+	//initHEALTHPowerUp();
+
+	//Enemies
+	initEnemies();
+
 	//Health
 	cacher->addSpriteFramesWithFile("res/Health.plist");
 	
+	_playerShip = (Sprite*)rootNode->getChildByName("PlayerShip");
+	_shipHealthInt = 1;
 	_shipHealth = Sprite::createWithSpriteFrameName("health_1.png");
 	_shipHealth->setScale(2);
 	_shipHealth->setAnchorPoint(Point(0, 0));
@@ -117,7 +122,124 @@ bool HelloWorld::init()
 
     return true;
 }
-//
+
+void HelloWorld::initHEALTHPowerUp()
+{
+	//HealthPwrUp - need to move to own method
+	_healthPwrUp = new PowerUp();
+
+	cacher->addSpriteFramesWithFile("res/Heart.plist");
+
+	_healthPwrUp->sprite = Sprite::create();
+
+	// load all the animation frames into an array
+	Vector<SpriteFrame*> frames;
+	for (int i = 1; i <= 8; i++)
+	{
+		stringstream ss;
+		ss << "frame_" << i << ".png";
+		frames.pushBack(cacher->getSpriteFrameByName(ss.str()));
+	}
+
+	//play the animation
+	Animation* anim = Animation::createWithSpriteFrames(frames, 0.225f);
+	_healthPwrUp->sprite->runAction(RepeatForever::create(Animate::create(anim)));
+	_healthPwrUp->sprite->setPosition(200, 100);
+	_healthPwrUp->sprite->setScale(0.07);
+	_healthPwrUp->scale = 1;
+	_healthPwrUp->onScreen = true;
+
+	_healthPwrUp->counter = 0;
+
+	this->addChild(_healthPwrUp->sprite);
+}
+
+void HelloWorld::initEnemies()
+{
+	for (int i = 8; i < 10; i++)
+	{
+		_enemies[i] = new Enemy();
+		_enemies[i]->sprite = Sprite::create();
+		_enemies[i]->sprite->initWithFile("res/Meteor.png");
+		_enemies[i]->onScreen = false;
+		_enemies[i]->damage = 3;
+		_enemies[i]->speed = 0.65;
+		_enemies[i]->originalHealth = 4;
+		_enemies[i]->currentHealth = _enemies[i]->originalHealth;
+		_enemies[i]->scale = 3;
+		_enemies[i]->sprite->setScale(_enemies[i]->scale);
+		_enemies[i]->radius = _enemies[i]->sprite->getContentSize().width / 2 * _enemies[i]->scale;
+		_enemies[i]->sprite->runAction(RepeatForever::create(RotateBy::create(15.0f, 360.0f)));
+		this->addChild(_enemies[i]->sprite);
+	}
+
+	for (int i = 5; i < 8; i++)
+	{
+		_enemies[i] = new Enemy();
+		_enemies[i]->sprite = Sprite::create();
+		_enemies[i]->sprite->initWithFile("res/Meteor.png");
+		_enemies[i]->onScreen = false;
+		_enemies[i]->damage = 2;
+		_enemies[i]->speed = 0.85;
+		_enemies[i]->originalHealth = 2;
+		_enemies[i]->currentHealth = _enemies[i]->originalHealth;
+		_enemies[i]->scale = 2;
+		_enemies[i]->sprite->setScale(_enemies[i]->scale);
+		_enemies[i]->radius = _enemies[i]->sprite->getContentSize().width / 2 * _enemies[i]->scale;
+		_enemies[i]->sprite->runAction(RepeatForever::create(RotateBy::create(10.0f, 360.0f)));
+		this->addChild(_enemies[i]->sprite);
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		_enemies[i] = new Enemy();
+		_enemies[i]->sprite = Sprite::create();
+		_enemies[i]->sprite->initWithFile("res/Meteor.png");
+		_enemies[i]->onScreen = false;
+		_enemies[i]->damage = 1;
+		_enemies[i]->speed = 1;
+		_enemies[i]->originalHealth = 1;
+		_enemies[i]->currentHealth = _enemies[i]->originalHealth;
+		_enemies[i]->scale = 1;
+		_enemies[i]->radius = _enemies[i]->sprite->getContentSize().width / 2 / _enemies[i]->scale;
+		_enemies[i]->sprite->runAction(RepeatForever::create(RotateBy::create(5.0f, 360.0f)));
+		this->addChild(_enemies[i]->sprite);
+	}
+	
+	_enemySpawn = 0;
+
+	for (int i = 0; i < 10; i++)
+	{
+		setEnemySpawn(i);
+	}
+}
+
+void HelloWorld::setEnemySpawn(int i)
+{
+	int temp = 125;
+	_enemySpawn += 1;
+	if (_enemySpawn == 5)
+	{
+		_enemySpawn = 1;
+	}
+	switch (_enemySpawn)
+		{
+		case 1:
+			_enemies[i]->sprite->setPosition(rand() % (int)winSize.width + 0, -temp);
+			break;
+		case 2:
+			_enemies[i]->sprite->setPosition(rand() % (int)winSize.width + 0, (int)winSize.height + temp);
+			break;
+		case 3:
+			_enemies[i]->sprite->setPosition(-temp, rand() % (int)winSize.height + 0);
+			break;
+		case 4:
+			_enemies[i]->sprite->setPosition((int)winSize.width + temp, rand() % (int)winSize.height + 0);
+			break;
+		}
+		_enemies[i]->currentHealth = _enemies[i]->originalHealth;
+}
+
 void HelloWorld::update(float delta)
 {
 	updateBackground();
@@ -128,6 +250,10 @@ void HelloWorld::update(float delta)
 	{
 		updateProjectile();
 	}
+
+	updateEnemies();
+
+	updatePlayerShip();
 }
 
 void HelloWorld::updateBackground()
@@ -171,6 +297,58 @@ void HelloWorld::updateProjectile()
 	}
 }
 
+void HelloWorld::updateEnemies()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		_enemies[i]->angle = ccpToAngle(ccpSub(_enemies[i]->sprite->getPosition(), _turret->getPosition()));
+		_enemies[i]->vector = Point(-cos(_enemies[i]->angle), -sin(_enemies[i]->angle));
+		_enemies[i]->temp = _enemies[i]->sprite->getPosition();
+		_enemies[i]->temp.x += _enemies[i]->vector.x * _enemies[i]->speed;
+		_enemies[i]->temp.y += _enemies[i]->vector.y * _enemies[i]->speed;
+		_enemies[i]->sprite->setPosition(_enemies[i]->temp.x, _enemies[i]->temp.y);
+	}
+
+	if (_projectile->onScreen)
+	{
+		//Check for enemy collisions
+		for (int i = 0; i < 10; i++)
+		{
+			if (_projectile->sprite->boundingBox().intersectsCircle(_enemies[i]->sprite->getPosition(), _enemies[i]->radius))
+			{
+				_projectile->sprite->setPosition(-100, -100);
+				_enemies[i]->currentHealth -= _projectile->damage;
+				if (_enemies[i]->currentHealth <= 0)
+				{
+					setEnemySpawn(i);
+				}
+			}
+		}
+	}
+}
+
+void HelloWorld::updatePlayerShip()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		if (_playerShip->boundingBox().intersectsCircle(_enemies[i]->sprite->getPosition(), _enemies[i]->radius))
+		{
+			setEnemySpawn(i);
+			_shipHealthInt += 1;	
+			if (_shipHealthInt < 7)
+			{
+				stringstream ss;
+				ss << "health_" << _shipHealthInt << ".png";
+				_shipHealth->setSpriteFrame(cacher->getSpriteFrameByName(ss.str()));
+			}
+			else
+			{
+				//game over
+			}
+		}
+	}
+}
+
 void HelloWorld::updateDMGPowerUp()
 {
 	//Maybe we should add a scale variable to some of the structs - that's what the last divide by 2 is for below
@@ -209,10 +387,8 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-	_touchLocation = touch->getLocation();
-
 	//ccpsub gets angle between them
-	_turretAngleRadians = ccpToAngle(ccpSub(_turret->getPosition(), _touchLocation));
+	_turretAngleRadians = ccpToAngle(ccpSub(_turret->getPosition(), touch->getLocation()));
 
 	_turret->setRotation(180 - CC_RADIANS_TO_DEGREES(_turretAngleRadians));
 
