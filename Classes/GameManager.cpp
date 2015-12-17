@@ -33,7 +33,7 @@ GameManager::~GameManager()
 
 void GameManager::AddToScore(int increment,int interval)
 {
-	interval = (int)Timer.
+	//interval = (int)Timer.
 	this->score += increment * interval;
 }
 

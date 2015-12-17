@@ -25,7 +25,6 @@ public:
 private:
 	GameManager();
 	static GameManager* instance;
-	CGFloat gameTime;
 	int  score;
 };
 
