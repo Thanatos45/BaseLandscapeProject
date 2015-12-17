@@ -83,7 +83,9 @@ public:
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchCancelled(cocos2d::Touch*, cocos2d::Event*);
-
+	void StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void StartGame();
+	void EndGame();
 private:
 	SpriteFrameCache* cacher;
 	Sprite* _bg1;
@@ -99,7 +101,9 @@ private:
 	int _enemySpawn;
 	float _turretAngleRadians;
 	Size winSize;
-	int _scrollSpeed;
+	int _scrollSpeed;	
+	cocos2d::Label* scoreLabel;
+	cocos2d::ui::Button* startButton;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

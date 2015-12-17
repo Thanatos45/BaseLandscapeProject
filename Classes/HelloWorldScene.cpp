@@ -1,6 +1,8 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "GameManager.h"
+#include "SimpleAudioEngine.h" 
 
 USING_NS_CC;
 
@@ -80,7 +82,20 @@ bool HelloWorld::init()
 
 	//Enemies
 	initEnemies();
+	
+	//UI and Menu
+	
+	//Start button
+	startButton = static_cast<ui::Button*>(rootNode->getChildByName("startButton"));
+	startButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::StartButtonPressed, this));
+	startButton->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.5f));
 
+	//Score
+	scoreLabel = (Label*)rootNode->getChildByName("scoreLabel");
+
+	// Game is not live until the start button is pressed
+	GameManager::sharedGameManager()->isGameLive = false;
+	
 	//Health
 	cacher->addSpriteFramesWithFile("res/Health.plist");
 	
@@ -121,6 +136,43 @@ bool HelloWorld::init()
 	this->scheduleUpdate();
 
     return true;
+}
+
+void HelloWorld::StartButtonPressed(Ref *psender, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		this->StartGame();
+	}
+	this->StartGame();
+}
+
+void HelloWorld::StartGame()
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+	GameManager::sharedGameManager()->isGameLive = true;
+
+	//reset player position
+	_playerShip->setPosition(winSize.width*0.5f, winSize.height*0.5f);
+
+	// Reset the score.
+	GameManager::sharedGameManager()->ResetScore();
+
+	//Retract start button.
+	auto moveTo = MoveTo::create(0.5, Vec2(-winSize.width*0.5f, winSize.height*0.5f)); // Take half a second to move off screen.
+	startButton->runAction(moveTo);
+}
+
+void HelloWorld::EndGame()
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+	GameManager::sharedGameManager()->isGameLive = false;
+
+	//Bring start button back on screen.
+	auto moveTo = MoveTo::create(0.5, Vec2(winSize.width*0.5f, winSize.height*0.5f)); // Take half a second to move on screen.
+	startButton->runAction(moveTo);
 }
 
 void HelloWorld::initHEALTHPowerUp()
@@ -243,7 +295,8 @@ void HelloWorld::setEnemySpawn(int i)
 void HelloWorld::update(float delta)
 {
 	updateBackground();
-
+if (GameManager::sharedGameManager()->isGameLive)
+	{
 	updateDMGPowerUp();
 	
 	if (_projectile->onScreen)
@@ -254,6 +307,7 @@ void HelloWorld::update(float delta)
 	updateEnemies();
 
 	updatePlayerShip();
+	}
 }
 
 void HelloWorld::updateBackground()
@@ -343,6 +397,7 @@ void HelloWorld::updatePlayerShip()
 			}
 			else
 			{
+				this->EndGame();
 				//game over
 			}
 		}
