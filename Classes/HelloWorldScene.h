@@ -57,7 +57,7 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
-	//Init Methods
+	//Init Methods - planned on refactoring more code into seperate init methods.
 	void initEnemies();
 
 	void initHEALTHPowerUp();
@@ -94,11 +94,13 @@ private:
 	Sprite* _turret;
 	Sprite* _playerShip;
 	Sprite* _shipHealth;
+	Sprite* _doubleDamage;
 	int _shipHealthInt;
 	PowerUp* _dmgPwrUp;
 	PowerUp* _healthPwrUp;
 	Projectile* _projectile;
 	Enemy* _enemies[10];
+	int _enemySpawnDistance;
 	int _enemySpawn;
 	float _turretAngleRadians;
 	Size winSize;

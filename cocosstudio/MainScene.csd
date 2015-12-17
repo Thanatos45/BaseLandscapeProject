@@ -61,6 +61,7 @@
             <FileData Type="Normal" Path="Projectile.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+<<<<<<< HEAD
           <AbstractNodeData Name="startButton" ActionTag="682322138" Tag="7" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="334.0000" RightMargin="346.0000" TopMargin="224.0160" BottomMargin="219.9840" TouchEnable="True" FontSize="14" ButtonText="Start Game" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="120.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -86,6 +87,18 @@
             <PreSize X="0.1025" Y="0.0479" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+=======
+          <AbstractNodeData Name="DoubleDamage" ActionTag="29829073" Tag="9" IconVisible="False" LeftMargin="824.4056" RightMargin="-98.4056" TopMargin="398.9478" BottomMargin="17.0522" ctype="SpriteObjectData">
+            <Size X="74.0000" Y="64.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="861.4056" Y="49.0522" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.0768" Y="0.1022" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="DoubleDamage.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+>>>>>>> refs/remotes/origin/AkilDaud
           </AbstractNodeData>
         </Children>
       </ObjectData>
