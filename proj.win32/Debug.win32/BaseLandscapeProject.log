@@ -1,0 +1,117 @@
+<<<<<<< HEAD
+﻿Build started 17/12/2015 16:33:36.
+     1>Project "D:\CurrentTGP\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
+=======
+﻿Build started 17/12/2015 13:54:27.
+     1>Project "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
+>>>>>>> refs/remotes/origin/AkilDaud
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\audio\include" /I"C:\Cocos\frameworks\cocos2d-x-3.8\external" /I"C:\Cocos\frameworks\cocos2d-x-3.8\external\chipmunk\include\chipmunk" /I"C:\Cocos\frameworks\cocos2d-x-3.8\extensions" /I..\Classes /I.. /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\editor-support" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\platform" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\platform\desktop" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\glfw3\include\win32" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\freetype2\include\win32\freetype2" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\freetype2\include\win32\\" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\AppDelegate.cpp ..\Classes\GameManager.cpp ..\Classes\HelloWorldScene.cpp main.cpp
+         AppDelegate.cpp
+         GameManager.cpp
+         HelloWorldScene.cpp
+<<<<<<< HEAD
+         main.cpp
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline (..\Classes\HelloWorldScene.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.h(28): error C2146: syntax error : missing ';' before identifier 'gameTime' (..\Classes\GameManager.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int (..\Classes\GameManager.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.cpp(36): error C2065: 'Timer' : undeclared identifier
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.cpp(37): error C2059: syntax error : 'this'
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.cpp(42): error C2228: left of '.ResetScore' must have class/struct/union
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.cpp(44): error C2228: left of '.score' must have class/struct/union
+                 unable to recover from previous error(s); stopping compilation
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(86): error C2027: use of undefined type 'cocos2d::ui::Widget' (..\Classes\HelloWorldScene.cpp)
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\base\cceventfocus.h(39) : see declaration of 'cocos2d::ui::Widget'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline (..\Classes\AppDelegate.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(86): error C2061: syntax error : identifier 'TouchEventType' (..\Classes\HelloWorldScene.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(86): error C2027: use of undefined type 'cocos2d::ui::Widget' (..\Classes\AppDelegate.cpp)
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\base\cceventfocus.h(39) : see declaration of 'cocos2d::ui::Widget'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(106): error C2039: 'Button' : is not a member of 'cocos2d::ui' (..\Classes\HelloWorldScene.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(86): error C2061: syntax error : identifier 'TouchEventType' (..\Classes\AppDelegate.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(106): error C2143: syntax error : missing ';' before '*' (..\Classes\HelloWorldScene.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(106): error C2039: 'Button' : is not a member of 'cocos2d::ui' (..\Classes\AppDelegate.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(106): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int (..\Classes\HelloWorldScene.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(106): error C2143: syntax error : missing ';' before '*' (..\Classes\AppDelegate.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(106): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int (..\Classes\AppDelegate.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\appdelegate.cpp(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.h(28): error C2146: syntax error : missing ';' before identifier 'gameTime' (..\Classes\HelloWorldScene.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\gamemanager.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int (..\Classes\HelloWorldScene.cpp)
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(89): error C2065: 'startButton' : undeclared identifier
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(90): error C2065: 'startButton' : undeclared identifier
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(90): error C2227: left of '->addTouchEventListener' must point to class/struct/union/generic type
+                 type is 'unknown-type'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(91): error C2065: 'startButton' : undeclared identifier
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(91): error C2227: left of '->setPosition' must point to class/struct/union/generic type
+                 type is 'unknown-type'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(132): warning C4996: 'cocos2d::Node::boundingBox': was declared deprecated
+=======
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(47): warning C4996: 'cocos2d::Director::sharedDirector': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\base\ccdirector.h(136) : see declaration of 'cocos2d::Director::sharedDirector'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(124): warning C4996: 'cocos2d::Node::boundingBox': was declared deprecated
+>>>>>>> refs/remotes/origin/AkilDaud
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\2d\ccnode.h(1163) : see declaration of 'cocos2d::Node::boundingBox'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(142): error C2511: 'void HelloWorld::StartButtonPressed(cocos2d::Ref *,cocos2d::ui::Widget::TouchEventType)' : overloaded member function not found in 'HelloWorld'
+                 d:\currenttgp\baselandscapeproject\classes\helloworldscene.h(47) : see declaration of 'HelloWorld'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(145): error C2671: 'HelloWorld::StartButtonPressed' : static member functions do not have 'this' pointers
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(145): error C2227: left of '->StartGame' must point to class/struct/union/generic type
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(147): error C2671: 'HelloWorld::StartButtonPressed' : static member functions do not have 'this' pointers
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(147): error C2227: left of '->StartGame' must point to class/struct/union/generic type
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(164): error C2065: 'startButton' : undeclared identifier
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(164): error C2227: left of '->runAction' must point to class/struct/union/generic type
+                 type is 'unknown-type'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(175): error C2065: 'startButton' : undeclared identifier
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(175): error C2227: left of '->runAction' must point to class/struct/union/generic type
+                 type is 'unknown-type'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(200): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(218): warning C4305: '=' : truncation from 'double' to 'float'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(235): warning C4305: '=' : truncation from 'double' to 'float'
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(371): warning C4996: 'cocos2d::Node::boundingBox': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\2d\ccnode.h(1163) : see declaration of 'cocos2d::Node::boundingBox'
+<<<<<<< HEAD
+     1>d:\currenttgp\baselandscapeproject\classes\helloworldscene.cpp(388): warning C4996: 'cocos2d::Node::boundingBox': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\2d\ccnode.h(1163) : see declaration of 'cocos2d::Node::boundingBox'
+     1>Done Building Project "D:\CurrentTGP\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" (Build target(s)) -- FAILED.
+=======
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(155): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(173): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(190): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(320): warning C4996: 'cocos2d::ccpToAngle': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\deprecated\ccdeprecated.h(241) : see declaration of 'cocos2d::ccpToAngle'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(320): warning C4996: 'cocos2d::ccpSub': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\deprecated\ccdeprecated.h(82) : see declaration of 'cocos2d::ccpSub'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(333): warning C4996: 'cocos2d::Node::boundingBox': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\2d\ccnode.h(1163) : see declaration of 'cocos2d::Node::boundingBox'
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\2d\ccnode.h(1163) : see declaration of 'cocos2d::Node::boundingBox'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(350): warning C4996: 'cocos2d::Node::boundingBox': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\2d\ccnode.h(1163) : see declaration of 'cocos2d::Node::boundingBox'
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\2d\ccnode.h(1163) : see declaration of 'cocos2d::Node::boundingBox'
+     1>c:\users\deadman\documents\github\baselandscapeproject\classes\helloworldscene.cpp(414): warning C4996: 'cocos2d::ccpToAngle': was declared deprecated
+                 c:\cocos\frameworks\cocos2d-x-3.8\cocos\deprecated\ccdeprecated.h(241) : see declaration of 'cocos2d::ccpToAngle'
+       PreLinkEvent:
+         if not exist "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.8\prebuilt\win32\*.*" "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\"
+         
+         :VCEnd
+         60 File(s) copied
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\ /LIBPATH:C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\ opengl32.lib glew32.lib libzlib.lib libwebp.lib libiconv.lib freetype.lib winmm.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.pdb" /SUBSYSTEM:WINDOWS,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.lib" /MACHINE:X86 /SAFESEH Debug.win32\game.res
+         Debug.win32\AppDelegate.obj
+         Debug.win32\HelloWorldScene.obj
+         Debug.win32\main.obj
+         BaseLandscapeProject.vcxproj -> C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exe
+       CustomBuildStep:
+         if not exist "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\"
+         xcopy "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\..\Resources" "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\Debug.win32\" /D /E /I /F /Y
+               
+         :VCEnd
+         0 File(s) copied
+     1>Done Building Project "C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" (Build target(s)).
+>>>>>>> refs/remotes/origin/AkilDaud
+
+Build FAILED.
+
+<<<<<<< HEAD
+Time Elapsed 00:03:42.47
+=======
+Time Elapsed 00:00:07.38
+>>>>>>> refs/remotes/origin/AkilDaud

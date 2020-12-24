@@ -1,0 +1,6 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v120_xp:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+<<<<<<< HEAD
+Debug|Win32|D:\CurrentTGP\BaseLandscapeProject\proj.win32\|
+=======
+Debug|Win32|C:\Users\DeadMan\Documents\GitHub\BaseLandscapeProject\proj.win32\|
+>>>>>>> refs/remotes/origin/AkilDaud
